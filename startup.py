@@ -308,7 +308,8 @@ def factory(name, start_doc):
 
     def subfactory(name, descriptor_doc):
         if descriptor_doc['name'] == 'primary':
-            serializer = suitcase.tiff_series.Serializer('exported/')
+            serializer = suitcase.tiff_series.Serializer('exported/',
+                    file_prefix='SUB-{start[uid]}-')
             serializer('start', start_doc)
             serializer('descriptor', descriptor_doc)
             return [serializer]
